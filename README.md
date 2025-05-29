@@ -39,8 +39,8 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 | PIE     | 2024-10-12  | 2024-10-13     | 3              | 4                | 14.9                       | 90.4             | 6.07             |
 | SRQ     | 2024-10-16  | 2024-10-17     | 7              | 8                | 27.1                       | 117.0            | 9.15             |
 
-[Download this table as CSV](./airport_resilience_summary.csv)  
-[View daily airport + weather data](./mart_airport_daily_milton.csv)
+[Download resilience summary CSV](csv_files/airport_resilience_summary.csv)
+[Download daily airport and weather data](csv_files/mart_airport_daily_milton.csv)
 
 > **Note:** Reopen date marks when meaningful flight operations resumed.  
 > Recovery date reflects the return to near-normal operations (fewer than 5% cancellations and at least 90% of baseline flight volume).
