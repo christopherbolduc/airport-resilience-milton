@@ -1,11 +1,11 @@
 # Hurricane Milton: Airport Resilience Analysis (October 2024)
 
----
-
 In October 2024, Hurricane Milton made landfall in Florida, causing widespread flight cancellations across five major airports within the hurricane warning zone:  
 **Daytona Beach (DAB), Orlando (MCO), Tampa (TPA), St. Pete–Clearwater (PIE), and Sarasota (SRQ).**
 
 This project investigates how quickly each airport recovered — and whether their responses aligned with the severity of the storm they faced.
+
+---
 
 ## Analytical Approach
 
@@ -59,14 +59,14 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 - **Meteostat API** – Historical hourly and daily weather data (e.g., temperature, wind speed, precipitation) for selected airports
 - **Bureau of Transportation Statistics (BTS)** – Flight records and cancellation data for major Florida airports
 
----
-
 ## Project Structure
 
 - `*.sql` files: Define views for **staging**, **prep**, and **mart** layers in the data pipeline
 - `ap_resilience.ipynb`: Performs resilience scoring and visualization using prepared SQL views
 - Visual assets are saved separately for integration into reports and presentations
 - This `README.md` summarizes the methodology, tools, and key results of the analysis
+
+---
 
 ## Takeaway
 
