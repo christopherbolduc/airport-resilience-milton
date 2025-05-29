@@ -13,7 +13,7 @@ Using daily flight operations and weather data, I developed a **resilience score
 
 - **Days to recovery** – number of days until operations normalized  
 - **Cancellation rate** – total percentage of cancelled flights during October  
-- **Peak wind speed** – refers to *hourly average wind speed*, used to normalize outcomes by storm intensity
+- **Peak wind speed** – refers to maximum *hourly average* wind speed, used in the denominator (with square root scaling) to normalize by storm intensity
 
 **Recovery** was determined using clear operational criteria: minimal cancellations and near-normal flight volume.
 This allowed me to identify not just which airports were hit hardest, but which ones recovered *most effectively* given their conditions. 
@@ -32,10 +32,10 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 | Airport | Date Reopened | Date Recovered | Days to Reopen | Days to Recovery | % Flights Cancelled (Oct) | Peak Wind (km/h) | Resilience Score |
 |:--------|:--------------|:---------------|:----------------|:------------------|:---------------------------|:------------------|:------------------|
 | DAB     | 2024-10-12    | 2024-10-12     | 3               | 3                 | 7.9                        | 100.1             | 3.79              |
-| TPA     | 2024-10-11    | 2024-10-12     | 2               | 3                 | 10.5                       | 83.5              | 4.85              |
-| MCO     | 2024-10-11    | 2024-10-12     | 2               | 3                 | 7.6                        | 74.2              | 5.07              |
-| PIE     | 2024-10-12    | 2024-10-13     | 3               | 4                 | 14.9                       | 90.4              | 6.07              |
-| SRQ     | 2024-10-16    | 2024-10-17     | 7               | 8                 | 27.1                       | 117.0             | 9.15              |
+| MCO     | 2024-10-11    | 2024-10-12     | 2               | 3                 | 7.6                        | 74.2              | 4.37              |
+| TPA     | 2024-10-11    | 2024-10-12     | 2               | 3                 | 10.5                       | 83.5              | 4.43              |
+| PIE     | 2024-10-12    | 2024-10-13     | 3               | 4                 | 14.9                       | 90.4              | 5.77              |
+| SRQ     | 2024-10-16    | 2024-10-17     | 7               | 8                 | 27.1                       | 117.0             | 9.90              |
 
 
 [Download resilience summary CSV](csv_files/airport_resilience_summary.csv) •
@@ -45,6 +45,18 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 > Recovery date reflects the return to near-normal operations (fewer than 5% cancellations and at least 90% of baseline flight volume).
 
 ---
+## Resilience Score Formula
+
+The formula used to compute each airport’s resilience score:
+
+<pre>resilience_score = ( 
+    (days_to_recovery + (pct_cancelled_oct * 10)) /
+    (peak_wind_speed_kmh ** 0.5 / 10) 
+) </pre>
+
+The resilience score balances operational recovery with storm impact by scaling cancellation rates (×10) to match the range of recovery days and applying square root scaling to wind speed. This ensures both disruption and severity are fairly represented in the final score.
+
+Lower scores indicate more resilient performance (faster recovery and fewer disruptions), normalized by storm intensity.
 
 ## Tools Used
 
