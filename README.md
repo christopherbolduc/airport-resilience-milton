@@ -86,10 +86,19 @@ To explore the full analysis:
 3. Install dependencies: `pip install -r requirements.txt`
 4. Open `ap_resilience.ipynb` in Jupyter
 
-To set up the SQL views:
+---
 
-- Load the SQL files from the `sql/` directory into a PostgreSQL instance
-- Follow the view creation order: `staging → prep → mart`
+## SQL View Definitions
+
+This project includes SQL scripts that define the data model using PostgreSQL views.
+
+The model is organized in three layers:
+
+- `models/staging/` — raw table wrappers
+- `models/prep/` — cleaned and aggregated features
+- `models/mart/` — final analytical dataset used in the notebook
+
+> **Note:** These SQL files reference source tables (e.g., `flights_oct2024`, `wx_milton_h_raw`) that are **not included in this repository**. To fully recreate the pipeline, equivalent raw data tables must be created using historical weather and flight data from BTS and Meteostat.
 
 ---
 
