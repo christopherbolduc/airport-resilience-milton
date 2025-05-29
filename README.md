@@ -1,5 +1,7 @@
 # Hurricane Milton: Airport Resilience Analysis (October 2024)
 
+---
+
 In October 2024, Hurricane Milton made landfall in Florida, causing widespread flight cancellations across five major airports within the hurricane warning zone:  
 **Daytona Beach (DAB), Orlando (MCO), Tampa (TPA), St. Pete–Clearwater (PIE), and Sarasota (SRQ).**
 
