@@ -107,3 +107,8 @@ All required packages are listed in `requirements.txt`. Key dependencies include
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Author
+
+Christopher Bolduc  
+[GitHub](https://github.com/christopherbolduc)
