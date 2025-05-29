@@ -74,7 +74,7 @@ Lower scores indicate more resilient performance (faster recovery and fewer disr
 ## Project Structure
 
 - `*.sql` files: Define views for **staging**, **prep**, and **mart** layers in the data pipeline
-- `ap_resilience.ipynb`: Performs resilience scoring and visualization using prepared SQL views
+- `ap_resilience.ipynb`: Perform resilience scoring and visualization using prepared SQL views
 - Visual assets are saved separately for integration into reports and presentations
 - This `README.md` summarizes the methodology, tools, and key results of the analysis
 
@@ -83,7 +83,7 @@ Lower scores indicate more resilient performance (faster recovery and fewer disr
 ## Takeaway
 
 Even within the same storm, airport recovery varied greatly.  
-This analysis highlights how **data-driven scoring** can reveal hidden operational strengths and vulnerabilities — and help decision-makers focus recovery efforts more effectively.
+This analysis highlights how **data-driven scoring** can reveal hidden operational strengths and vulnerabilities--and help decision-makers focus recovery efforts more effectively.
 
 ---
 
