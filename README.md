@@ -31,13 +31,13 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 
 ## Resilience Score Rankings (Adjusted for Wind Severity)
 
-| Airport | Reopen Date    | Recovery Date  | Days to Reopen | Days to Recovery | % Flights Cancelled (Oct)  | Peak Wind (km/h) | Resilience Score |
-|---------|----------------|----------------|----------------|------------------|----------------------------|------------------|------------------|
-| DAB     | 2024-10-12     | 2024-10-12     | 3              | 3                | 7.9                        | 100.1            | 3.79             |
-| TPA     | 2024-10-11     | 2024-10-12     | 2              | 3                | 10.5                       | 83.5             | 4.85             |
-| MCO     | 2024-10-11     | 2024-10-12     | 2              | 3                | 7.6                        | 74.2             | 5.07             |
-| PIE     | 2024-10-12     | 2024-10-13     | 3              | 4                | 14.9                       | 90.4             | 6.07             |
-| SRQ     | 2024-10-16     | 2024-10-17     | 7              | 8                | 27.1                       | 117.0            | 9.15             |
+| Airport | Reopen Date   | Recovery Date | Days to Reopen | Days to Recovery | % Flights Cancelled (Oct) | Peak Wind (km/h) | Resilience Score |
+|---------|---------------|---------------|----------------|------------------|---------------------------|------------------|------------------|
+| DAB     | 2024-10-12    | 2024-10-12    | 3              | 3                | 7.9                       | 100.1            | 3.79             |
+| TPA     | 2024-10-11    | 2024-10-12    | 2              | 3                | 10.5                      | 83.5             | 4.85             |
+| MCO     | 2024-10-11    | 2024-10-12    | 2              | 3                | 7.6                       | 74.2             | 5.07             |
+| PIE     | 2024-10-12    | 2024-10-13    | 3              | 4                | 14.9                      | 90.4             | 6.07             |
+| SRQ     | 2024-10-16    | 2024-10-17    | 7              | 8                | 27.1                      | 117.0            | 9.15             |
 
 [Download resilience summary CSV](csv_files/airport_resilience_summary.csv)
 [Download daily airport and weather data](csv_files/mart_airport_daily_milton.csv)
