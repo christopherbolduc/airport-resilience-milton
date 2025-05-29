@@ -5,8 +5,6 @@ In October 2024, Hurricane Milton made landfall in Florida, causing widespread f
 
 This project investigates how quickly each airport recovered — and whether their responses aligned with the severity of the storm they faced.
 
----
-
 ## Analytical Approach
 
 Using daily flight operations and weather data, I developed a **resilience score** for each airport. The score was based on:
@@ -17,8 +15,6 @@ Using daily flight operations and weather data, I developed a **resilience score
 
 **Recovery** was determined using clear operational criteria: minimal cancellations and near-normal flight volume.
 This allowed me to identify not just which airports were hit hardest, but which ones recovered *most effectively* given their conditions. 
-
----
 
 ## Why SRQ Stood Out
 
@@ -40,7 +36,6 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 | SRQ     | 2024-10-16    | 2024-10-17     | 7               | 8                 | 27.1                       | 117.0             | 9.15              |
 
 
-
 [Download resilience summary CSV](csv_files/airport_resilience_summary.csv) •
 [Download daily airport and weather data](csv_files/mart_airport_daily_milton.csv)
 
@@ -48,6 +43,7 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 > Recovery date reflects the return to near-normal operations (fewer than 5% cancellations and at least 90% of baseline flight volume).
 
 ---
+
 ## Tools Used
 
 - **Python**, **Pandas**, **Matplotlib**, **Seaborn**
@@ -55,8 +51,6 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 - **SQLAlchemy** for programmatic SQL access and integration
 - **Jupyter Notebook** for end-to-end data analysis and visualization
 - **Gamma** for storytelling and visual presentation
-
----
 
 ## Data Sources
 
@@ -77,6 +71,8 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 Even within the same storm, airport recovery varied greatly.  
 This analysis highlights how **data-driven scoring** can reveal hidden operational strengths and vulnerabilities — and help decision-makers focus recovery efforts more effectively.
 
+---
+
 ## Getting Started
 
 To explore the full analysis:
@@ -85,8 +81,6 @@ To explore the full analysis:
 2. Create and activate a Python environment (optional but recommended)
 3. Install dependencies: `pip install -r requirements.txt`
 4. Open `ap_resilience.ipynb` in Jupyter
-
----
 
 ## SQL View Definitions
 
@@ -100,8 +94,6 @@ The model is organized in three layers:
 
 > **Note:** These SQL files reference source tables (e.g., `flights_oct2024`, `wx_milton_h_raw`) that are **not included in this repository**. To fully recreate the pipeline, equivalent raw data tables must be created using historical weather and flight data from BTS and Meteostat.
 
----
-
 ## Python Dependencies
 
 All required packages are listed in `requirements.txt`. Key dependencies include:
@@ -114,6 +106,8 @@ All required packages are listed in `requirements.txt`. Key dependencies include
 - psycopg2-binary  
 - meteostat  
 - jupyter
+
+---
 
 ## License
 
