@@ -19,3 +19,6 @@ daily_data AS (
 )
 SELECT * 
 FROM daily_data
+
+/*  Parses and flattens daily weather data from JSON format.
+    Captures key daily metrics like average temperature, wind, precipitation, and pressure. */

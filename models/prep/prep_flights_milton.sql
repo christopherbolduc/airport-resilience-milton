@@ -16,3 +16,6 @@ SELECT
     ) AS avg_dep_delay
 FROM stag_flights_milton
 GROUP BY origin, flight_date
+
+/*  Summarizes daily flight activity by airport.
+    Calculates number of flights, cancellations, cancellation rate, and average departure delay.    */

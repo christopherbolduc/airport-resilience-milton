@@ -9,3 +9,8 @@ SELECT
     MIN(pressure_hpa) AS min_pressure_hpa
 FROM stag_wx_milton_h
 GROUP BY airport_code, date
+
+/*  Aggregates hourly weather data into daily summaries per airport.
+    Includes daily totals, averages, and extremes for key weather variables.
+    
+    -- DO NOT USE for hourly insights (values are rolled up by day) */

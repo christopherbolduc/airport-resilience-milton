@@ -13,3 +13,6 @@ SELECT
     cancelled,
     diverted
 FROM flights_oct2024
+
+/*  Extracts flight-level details for each scheduled departure.
+    Includes flight times, delays, airline info, and cancellation/diversion flags.  /*

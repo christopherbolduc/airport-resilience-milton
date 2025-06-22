@@ -14,3 +14,6 @@ FROM prep_flights_milton f
 LEFT JOIN prep_wx_milton_h w
     ON f.airport_code = w.airport_code AND f.flight_date = w.date
 WHERE f.airport_code IN ('SRQ', 'TPA', 'MCO', 'PIE', 'DAB')
+
+/*  Combines daily flight and weather summaries for selected Florida airports.
+    Useful for analyzing how weather conditions relate to flight activity and delays.   */

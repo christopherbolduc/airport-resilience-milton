@@ -24,3 +24,6 @@ hourly_data AS (
 )
 SELECT * 
 FROM hourly_data
+
+/*  Parses and flattens hourly weather data from JSON format.
+    Extracts timestamped metrics like temperature, humidity, wind, and pressure.    */
