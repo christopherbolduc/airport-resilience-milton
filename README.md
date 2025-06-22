@@ -1,3 +1,6 @@
+> This project evaluates the operational resilience of five Florida airports affected by Hurricane Milton (Oct 2024). Using flight and weather data, I developed a resilience score to assess recovery performance relative to storm severity. Results show that DAB performed best, while SRQ showed significant recovery delays despite comparable wind intensity.
+
+
 # Hurricane Milton: Airport Resilience Analysis (October 2024)
 
 In October 2024, Hurricane Milton made landfall in Florida, causing widespread flight cancellations across five major airports within the hurricane warning zone:  
@@ -57,6 +60,18 @@ The formula used to compute each airport’s resilience score:
 The resilience score balances operational recovery with storm impact by scaling cancellation rates (×10) to match the range of recovery days and applying square root scaling to wind speed. This ensures both disruption and severity are fairly represented in the final score.
 
 Lower scores indicate more resilient performance (faster recovery and fewer disruptions), normalized by storm intensity.
+
+### Code Implementation (Python)
+
+For technical readers, the formula is implemented as a Python function:
+
+```python
+def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
+    return (
+        (days_to_recovery + (pct_cancelled * 10)) /
+        ((peak_wind_speed_kmh ** 0.5) / 10)
+    )
+```
 
 ## Tools Used
 
