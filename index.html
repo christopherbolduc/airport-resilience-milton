@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Airport Resilience - Milton</title>
+  <title>Hurricane Milton: Airport Resilience Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -23,7 +24,7 @@
     }
     .container {
       padding: 2rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       background: white;
       border-radius: 10px;
@@ -45,48 +46,128 @@
     .buttons a:hover {
       background: #0066cc;
     }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+    }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: #666;
     }
+    canvas {
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Airport Resilience in Milton</h1>
-    <p>Understanding infrastructure resilience through real data & research</p>
+    <h1>Hurricane Milton: Airport Resilience Analysis (Oct 2024)</h1>
+    <p>Comparing recovery performance of Florida airports post-hurricane</p>
   </header>
 
   <div class="container">
     <section>
-      <h2>Project Overview</h2>
-      <p>This project analyzes the resilience of airport infrastructure in Milton, focusing on disruptions, recovery patterns, and recommendations for robustness in aviation planning.</p>
+      <h2>Executive Summary</h2>
+      <p>This project evaluates the operational resilience of five Florida airports affected by Hurricane Milton. Using flight and weather data, I developed a resilience score to assess recovery performance relative to storm severity. DAB performed best; SRQ showed the longest delays.</p>
     </section>
 
     <section>
-      <h2>My Role</h2>
-      <p>I led the data analysis and visualization efforts, sourcing aviation traffic data, modeling disruptions, and presenting actionable insights using Python and geospatial tools.</p>
+      <h2>Airports Analyzed</h2>
+      <p>DAB • MCO • TPA • PIE • SRQ</p>
     </section>
 
     <section>
-      <h2>Key Results</h2>
+      <h2>Resilience Score Table</h2>
+      <table>
+        <tr>
+          <th>Airport</th><th>Date Reopened</th><th>Date Recovered</th><th>Days to Reopen</th><th>Days to Recovery</th><th>% Cancelled</th><th>Peak Wind (km/h)</th><th>Score</th>
+        </tr>
+        <tr><td>DAB</td><td>2024-10-12</td><td>2024-10-12</td><td>3</td><td>3</td><td>7.9</td><td>100.1</td><td>3.79</td></tr>
+        <tr><td>MCO</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>7.6</td><td>74.2</td><td>4.37</td></tr>
+        <tr><td>TPA</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>10.5</td><td>83.5</td><td>4.43</td></tr>
+        <tr><td>PIE</td><td>2024-10-12</td><td>2024-10-13</td><td>3</td><td>4</td><td>14.9</td><td>90.4</td><td>5.77</td></tr>
+        <tr><td>SRQ</td><td>2024-10-16</td><td>2024-10-17</td><td>7</td><td>8</td><td>27.1</td><td>117.0</td><td>9.90</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Interactive Chart: Resilience Scores</h2>
+      <canvas id="resilienceChart"></canvas>
+    </section>
+
+    <section>
+      <h2>Insights</h2>
       <ul>
-        <li>Identified top 3 resilience gaps in airport operations</li>
-        <li>Built a predictive model with 85% accuracy</li>
-        <li>Presented findings to stakeholders with interactive visuals</li>
+        <li><strong>DAB</strong> recovered fastest despite heavy winds</li>
+        <li><strong>SRQ</strong> had severe delays due to infrastructure damage</li>
+        <li>Recovery timelines do not always align with storm intensity</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Scoring Formula</h2>
+      <pre><code>resilience_score = (
+    (days_to_recovery + (pct_cancelled * 10)) /
+    ((peak_wind_speed_kmh ** 0.5) / 10)
+)</code></pre>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <p>Python • Pandas • Seaborn • SQL • SQLAlchemy • Jupyter • Meteostat API • BTS Flight Data</p>
     </section>
 
     <div class="buttons">
       <a href="https://github.com/christopherbolduc/airport-resilience-milton" target="_blank">🔗 View GitHub Repo</a>
-      <a href="#">📄 View Report (coming soon)</a>
+      <a href="csv_files/airport_resilience_summary.csv">📥 Resilience Summary CSV</a>
+      <a href="csv_files/mart_airport_daily_milton.csv">📥 Daily Airport Data CSV</a>
+      <a href="about.html">👤 About Me</a>
+      <a href="methodology.html">📘 Methodology</a>
     </div>
   </div>
 
   <footer>
-    Created by Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc" target="_blank">LinkedIn</a>
+    Created by Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
   </footer>
+
+  <script>
+    const ctx = document.getElementById('resilienceChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['DAB', 'MCO', 'TPA', 'PIE', 'SRQ'],
+        datasets: [{
+          label: 'Resilience Score',
+          data: [3.79, 4.37, 4.43, 5.77, 9.90],
+          backgroundColor: '#004d99'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Airport Resilience Scores (Lower is Better)'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
