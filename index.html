@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Methodology - Hurricane Milton Project</title>
+  <title>Hurricane Milton: Airport Resilience Analysis</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -30,15 +30,21 @@
     section {
       margin-bottom: 2rem;
     }
-    h1 {
-      margin-bottom: 1rem;
-    }
     h2 {
       margin-bottom: 1rem;
       color: #4C72B0;
     }
-    ul {
-      padding-left: 1.2rem;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
     }
     .buttons a {
       display: inline-block;
@@ -56,11 +62,12 @@
     footer {
       text-align: center;
       padding: 2rem;
-      color: #666;
       font-size: 0.9rem;
+      color: #666;
     }
-    a {
-      color: #6e6e6e;
+    img {
+      max-width: 100%;
+      border-radius: 8px;
     }
     code {
       display: block;
@@ -73,37 +80,47 @@
 </head>
 <body>
   <header>
-    <h1>Project Methodology</h1>
-    <p>Airport Resilience Analysis During Hurricane Milton</p>
+    <h1>Hurricane Milton: Airport Resilience Analysis (Oct 2024)</h1>
+    <p>Comparing recovery performance of Florida airports post-hurricane</p>
   </header>
 
   <div class="container">
     <section>
       <h2>Summary</h2>
-      <p>This project evaluated the recovery performance of five Florida airports affected by Hurricane Milton in October 2024. Using flight operations data from the Bureau of Transportation Statistics and hourly wind speeds from the Meteostat API, a composite <strong>resilience score</strong> was developed to compare operational recovery while accounting for storm severity.</p>
+      <p>This project evaluates the operational resilience of five Florida airports affected by Hurricane Milton. Using flight and weather data, I developed a resilience score to assess recovery performance relative to storm severity. DAB performed best; SRQ showed the longest delays.</p>
     </section>
 
     <section>
-      <h2>Key Metrics Used</h2>
-      <ul>
-        <li><strong>Days to Recovery:</strong> Number of days until operations normalized</li>
-        <li><strong>% Flights Cancelled (Oct):</strong> Percent of cancelled flights across October 2024</li>
-        <li><strong>Peak Wind Speed:</strong> Maximum hourly average wind speed per airport</li>
-      </ul>
+      <h2>Airports Analyzed</h2>
+      <p>DAB • MCO • TPA • PIE • SRQ</p>
     </section>
 
     <section>
-      <h2>Resilience Score Formula</h2>
-      <p>The formula balances operational impact (delays, cancellations) with storm severity:</p>
-      <code>resilience_score = (
-    (days_to_recovery + (pct_cancelled * 10)) /
-    ((peak_wind_speed_kmh ** 0.5) / 10)
-)</code>
-      <p>Lower scores represent better resilience — faster recovery with fewer disruptions, normalized by peak storm intensity.</p>
+      <h2>Resilience Score Table</h2>
+      <table>
+        <tr>
+          <th>Airport</th><th>Date Reopened</th><th>Date Recovered</th><th>Days to Reopen</th><th>Days to Recovery</th><th>% Cancelled</th><th>Peak Wind (km/h)</th><th>Score</th>
+        </tr>
+        <tr><td>DAB</td><td>2024-10-12</td><td>2024-10-12</td><td>3</td><td>3</td><td>7.9</td><td>100.1</td><td>3.79</td></tr>
+        <tr><td>MCO</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>7.6</td><td>74.2</td><td>4.37</td></tr>
+        <tr><td>TPA</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>10.5</td><td>83.5</td><td>4.43</td></tr>
+        <tr><td>PIE</td><td>2024-10-12</td><td>2024-10-13</td><td>3</td><td>4</td><td>14.9</td><td>90.4</td><td>5.77</td></tr>
+        <tr><td>SRQ</td><td>2024-10-16</td><td>2024-10-17</td><td>7</td><td>8</td><td>27.1</td><td>117.0</td><td>9.90</td></tr>
+      </table>
     </section>
 
     <section>
-      <h2>Python Implementation</h2>
+      <h2>Flight Cancellation Trends</h2>
+      <img src="images/cancellation_rate_trend.png" alt="Flight Cancellation Trend Chart">
+    </section>
+
+    <section>
+      <h2>Resilience Scores by Airport</h2>
+      <img src="images/resilience_score_barchart.png" alt="Resilience Score Bar Chart">
+    </section>
+
+    <section>
+      <h2>Scoring Formula (Python)</h2>
       <code>def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
     return (
         (days_to_recovery + (pct_cancelled * 10)) /
@@ -112,28 +129,21 @@
     </section>
 
     <section>
-      <h2>Data Engineering</h2>
-      <ul>
-        <li><strong>Staging Layer:</strong> Raw FAA and Meteostat data loaded via SQL views</li>
-        <li><strong>Prep Layer:</strong> Cleaned, filtered, joined by airport and date</li>
-        <li><strong>Mart Layer:</strong> Final analytical dataset with recovery and weather KPIs</li>
-      </ul>
-    </section>
-
-    <section>
       <h2>Tools & Technologies</h2>
-      <p>Python (Pandas, Seaborn, Matplotlib) • SQL (PostgreSQL, SQLAlchemy) • Jupyter Notebook • DBeaver • Meteostat API • BTS</p>
+      <p>Python • Pandas • Seaborn • SQL • SQLAlchemy • Jupyter • Meteostat API • BTS Flight Data</p>
     </section>
 
     <div class="buttons">
-      <a href="index.html">🏠 Home</a>
+      <a href="https://github.com/christopherbolduc/airport-resilience-milton" target="_blank">🔗 View GitHub Repo</a>
+      <a href="csv_files/airport_resilience_summary.csv">📥 Resilience Summary CSV</a>
+      <a href="csv_files/mart_airport_daily_milton.csv">📥 Daily Airport Data CSV</a>
       <a href="about.html">👤 About Me</a>
-      <a href="https://github.com/christopherbolduc/airport-resilience-milton" target="_blank">🔗 GitHub Repo</a>
+      <a href="index.html">🏠 Back to Home</a>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
+    Created by Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
