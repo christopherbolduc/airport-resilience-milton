@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me - Christopher Bolduc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: "Inter", "Helvetica Neue", sans-serif;
@@ -13,16 +14,16 @@
       color: #333;
     }
     header {
-      background: #6e6e6e; /* medium grey */
+      background: #6e6e6e;
       color: white;
       padding: 2rem;
       text-align: center;
     }
-    main {
+    .container {
+      padding: 2rem;
       max-width: 900px;
       margin: 0 auto;
       background: white;
-      padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
@@ -35,6 +36,19 @@
     ul {
       padding-left: 1.2rem;
     }
+    .buttons a {
+      display: inline-block;
+      margin: 1rem 1rem 0 0;
+      padding: 0.75rem 1.25rem;
+      background: #6e6e6e;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .buttons a:hover {
+      background: #505050;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -42,17 +56,17 @@
       font-size: 0.9rem;
     }
     a {
-      color: #6e6e6e; /* match header color */
+      color: #6e6e6e;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1>About Me</h1>
     <p>Christopher Bolduc — Data Analyst | Storyteller | Creative Problem-Solver</p>
   </header>
-  <main>
+
+  <div class="container">
     <section>
       <h2>Background</h2>
       <p>I’m a classically trained opera singer with 15+ years of international experience at premier institutions like the Metropolitan Opera, Glyndebourne Festival, and Deutsche Oper am Rhein. Today, I channel that same discipline and narrative clarity into data analytics — blending art and logic to solve complex problems with compelling insights.</p>
@@ -87,11 +101,18 @@
 
     <section>
       <h2>Let’s Connect</h2>
-      <p>I'm open to opportunities across analytics, BI, and operations — anywhere data meets storytelling. Reach out via <a href="mailto:christopherbolduc@gmail.com">email</a> or visit my <a href="https://linkedin.com/in/christopher-david-bolduc" target="_blank">LinkedIn</a>.</p>
+      <p>I'm open to opportunities across analytics, BI, and operations — anywhere data meets storytelling. Reach out via my <a href="https://linkedin.com/in/christopher-david-bolduc" target="_blank">LinkedIn</a>.</p>
     </section>
-  </main>
+
+    <div class="buttons">
+      <a href="index.html">🏠 Home</a>
+      <a href="methodology.html">📘 Methodology</a>
+      <a href="https://github.com/christopherbolduc/airport-resilience-milton" target="_blank">🔗 GitHub Repo</a>
+    </div>
+  </div>
+
   <footer>
-    &copy; 2024 Christopher Bolduc
+    &copy; 202 Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>

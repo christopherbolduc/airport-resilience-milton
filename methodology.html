@@ -3,119 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Methodology - Airport Resilience Analysis</title>
+  <title>Hurricane Milton: Airport Resilience Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: system-ui, sans-serif;
+      font-family: "Inter", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f5f5;
       color: #333;
     }
     header {
-      background: #004d99;
+      background: #6e6e6e;
       color: white;
       padding: 2rem;
       text-align: center;
     }
-    main {
+    .container {
+      padding: 2rem;
       max-width: 900px;
       margin: 0 auto;
       background: white;
-      padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     section {
       margin-bottom: 2rem;
     }
-    h1, h2, h3 {
-      margin-bottom: 1rem;
+    .buttons a {
+      display: inline-block;
+      margin: 1rem 1rem 0 0;
+      padding: 0.75rem 1.25rem;
+      background: #6e6e6e;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
     }
-    ul {
-      padding-left: 1.2rem;
+    .buttons a:hover {
+      background: #505050;
     }
-    code, pre {
-      background: #eee;
-      display: block;
-      padding: 1rem;
-      overflow-x: auto;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      color: #666;
       font-size: 0.9rem;
+      color: #666;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    code {
+      display: block;
+      background: #eee;
+      padding: 1rem;
+      white-space: pre-wrap;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Methodology</h1>
-    <p>How the Airport Resilience Score was built and calculated</p>
+    <h1>Hurricane Milton: Airport Resilience Analysis (Oct 2024)</h1>
+    <p>Comparing recovery performance of Florida airports post-hurricane</p>
   </header>
-  <main>
+
+  <div class="container">
     <section>
-      <h2>Analytical Approach</h2>
-      <p>To evaluate airport resilience during Hurricane Milton (Oct 2024), I sourced daily flight operations and weather data across five Florida airports. The goal was to measure how well each airport recovered, not just how badly it was hit.</p>
+      <h2>Executive Summary</h2>
+      <p>This project evaluates the operational resilience of five Florida airports affected by Hurricane Milton. Using flight and weather data, I developed a resilience score to assess recovery performance relative to storm severity. DAB performed best; SRQ showed the longest delays.</p>
     </section>
 
     <section>
-      <h2>Key Metrics</h2>
-      <ul>
-        <li><strong>Days to recovery</strong> — Time until flight volume and cancellations returned to near-normal</li>
-        <li><strong>Cancellation rate</strong> — Total flight cancellations during October</li>
-        <li><strong>Peak wind speed</strong> — Used to normalize for storm severity using square-root scaling</li>
-      </ul>
+      <h2>Airports Analyzed</h2>
+      <p>DAB • MCO • TPA • PIE • SRQ</p>
     </section>
 
     <section>
-      <h2>Resilience Score Formula</h2>
-      <p>The final score balances operational disruption and storm intensity:</p>
-      <pre><code>resilience_score = (
-    (days_to_recovery + (pct_cancelled * 10)) /
-    ((peak_wind_speed_kmh ** 0.5) / 10)
-)</code></pre>
-      <p>Higher scores indicate worse performance. The formula is designed to fairly compare recovery, adjusting for how hard each airport was hit.</p>
+      <h2>Resilience Score Table</h2>
+      <table>
+        <tr>
+          <th>Airport</th><th>Date Reopened</th><th>Date Recovered</th><th>Days to Reopen</th><th>Days to Recovery</th><th>% Cancelled</th><th>Peak Wind (km/h)</th><th>Score</th>
+        </tr>
+        <tr><td>DAB</td><td>2024-10-12</td><td>2024-10-12</td><td>3</td><td>3</td><td>7.9</td><td>100.1</td><td>3.79</td></tr>
+        <tr><td>MCO</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>7.6</td><td>74.2</td><td>4.37</td></tr>
+        <tr><td>TPA</td><td>2024-10-11</td><td>2024-10-12</td><td>2</td><td>3</td><td>10.5</td><td>83.5</td><td>4.43</td></tr>
+        <tr><td>PIE</td><td>2024-10-12</td><td>2024-10-13</td><td>3</td><td>4</td><td>14.9</td><td>90.4</td><td>5.77</td></tr>
+        <tr><td>SRQ</td><td>2024-10-16</td><td>2024-10-17</td><td>7</td><td>8</td><td>27.1</td><td>117.0</td><td>9.90</td></tr>
+      </table>
     </section>
 
     <section>
-      <h2>Tools Used</h2>
-      <p><strong>Languages:</strong> Python, SQL</p>
-      <p><strong>Libraries:</strong> Pandas, Matplotlib, Seaborn, SQLAlchemy, Meteostat</p>
-      <p><strong>Environment:</strong> Jupyter Notebook, PostgreSQL (DBeaver), Git/GitHub</p>
+      <h2>Flight Cancellation Trends</h2>
+      <img src="images/cancellation_rate_trend.png" alt="Flight Cancellation Trend Chart">
     </section>
 
     <section>
-      <h2>Data Sources</h2>
-      <ul>
-        <li><strong>BTS (Bureau of Transportation Statistics)</strong> — Historical flight operations and cancellations</li>
-        <li><strong>Meteostat API</strong> — Hourly and daily weather data by airport</li>
-      </ul>
+      <h2>Resilience Scores by Airport</h2>
+      <img src="images/resilience_score_barchart.png" alt="Resilience Score Bar Chart">
     </section>
 
     <section>
-      <h2>SQL View Structure</h2>
-      <p>To manage complexity, SQL views were structured in 3 layers:</p>
-      <ul>
-        <li><strong>Staging</strong> — Raw table wrappers</li>
-        <li><strong>Prep</strong> — Cleaned and engineered features</li>
-        <li><strong>Mart</strong> — Final analytical dataset used in notebooks and reporting</li>
-      </ul>
+      <h2>Scoring Formula (Python)</h2>
+      <code>def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
+    return (
+        (days_to_recovery + (pct_cancelled * 10)) /
+        ((peak_wind_speed_kmh ** 0.5) / 10)
+    )</code>
     </section>
 
     <section>
-      <h2>Notebook Analysis</h2>
-      <p>The resilience score was calculated in a Jupyter Notebook using prepared SQL views. Charts and visuals were created with Matplotlib and Seaborn, and key metrics were exported to CSV for use in reports and dashboards.</p>
+      <h2>Tools & Technologies</h2>
+      <p>Python • Pandas • Seaborn • SQL • SQLAlchemy • Jupyter • Meteostat API • BTS Flight Data</p>
     </section>
 
-    <section>
-      <h2>Reproducibility</h2>
-      <p>Anyone can recreate the analysis by cloning the repository, installing dependencies from <code>requirements.txt</code>, and running <code>ap_resilience.ipynb</code> with the proper source data in place.</p>
-    </section>
-  </main>
+    <div class="buttons">
+      <a href="https://github.com/christopherbolduc/airport-resilience-milton" target="_blank">🔗 View GitHub Repo</a>
+      <a href="csv_files/airport_resilience_summary.csv">📥 Resilience Summary CSV</a>
+      <a href="csv_files/mart_airport_daily_milton.csv">📥 Daily Airport Data CSV</a>
+      <a href="about.html">👤 About Me</a>
+      <a href="index.html">🏠 Back to Home</a>
+    </div>
+  </div>
+
   <footer>
-    &copy; 2024 Christopher Bolduc
+    Created by Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
