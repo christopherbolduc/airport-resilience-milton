@@ -4,23 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hurricane Milton: Airport Resilience Analysis</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: system-ui, sans-serif;
+      font-family: "Inter", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f5f5;
       color: #333;
     }
     header {
-      background: #004d99;
+      background: #6e6e6e; /* medium grey */
       color: white;
       padding: 2rem;
       text-align: center;
-    }
-    header h1 {
-      margin: 0 0 0.5rem;
     }
     .container {
       padding: 2rem;
@@ -37,14 +34,14 @@
       display: inline-block;
       margin: 1rem 1rem 0 0;
       padding: 0.75rem 1.25rem;
-      background: #004d99;
+      background: #6e6e6e;
       color: white;
       text-decoration: none;
       border-radius: 5px;
       transition: background 0.3s ease;
     }
     .buttons a:hover {
-      background: #0066cc;
+      background: #505050;
     }
     table {
       border-collapse: collapse;
@@ -64,8 +61,9 @@
       font-size: 0.9rem;
       color: #666;
     }
-    canvas {
+    img {
       max-width: 100%;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -101,17 +99,13 @@
     </section>
 
     <section>
-      <h2>Interactive Chart: Resilience Scores</h2>
-      <canvas id="resilienceChart"></canvas>
+      <h2>Flight Cancellation Trends</h2>
+      <img src="images/cancellation_rate_trend.png" alt="Flight Cancellation Trend Chart">
     </section>
 
     <section>
-      <h2>Insights</h2>
-      <ul>
-        <li><strong>DAB</strong> recovered fastest despite heavy winds</li>
-        <li><strong>SRQ</strong> had severe delays due to infrastructure damage</li>
-        <li>Recovery timelines do not always align with storm intensity</li>
-      </ul>
+      <h2>Resilience Scores by Airport</h2>
+      <img src="images/resilience_score_barchart.png" alt="Resilience Score Bar Chart">
     </section>
 
     <section>
@@ -139,35 +133,5 @@
   <footer>
     Created by Christopher Bolduc • <a href="https://linkedin.com/in/christopher-david-bolduc/" target="_blank">LinkedIn</a>
   </footer>
-
-  <script>
-    const ctx = document.getElementById('resilienceChart');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['DAB', 'MCO', 'TPA', 'PIE', 'SRQ'],
-        datasets: [{
-          label: 'Resilience Score',
-          data: [3.79, 4.37, 4.43, 5.77, 9.90],
-          backgroundColor: '#004d99'
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          title: {
-            display: true,
-            text: 'Airport Resilience Scores (Lower is Better)'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  </script>
 </body>
 </html>
