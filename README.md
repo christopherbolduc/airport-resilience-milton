@@ -9,6 +9,9 @@ In October 2024, Hurricane Milton made landfall in Florida, causing widespread f
 This project investigates how quickly each airport recovered — and whether their responses aligned with the severity of the storm they faced.
 
 ---
+**Flight Cancellations Surrounding Hurricane Milton**  
+
+![Recovery Timeline](images/cancellation_rate_trend.png)
 
 ## Analytical Approach
 
@@ -47,6 +50,10 @@ In contrast, **DAB faced nearly the same wind intensity** but resumed normal ope
 > **Note:** Reopen date marks when meaningful flight operations resumed.  
 > Recovery date reflects the return to near-normal operations (fewer than 5% cancellations and at least 90% of baseline flight volume).
 
+**Resilience Score Comparison** 
+ 
+![Resilience Score Chart](images/resilience_score_barchart.png)
+
 ---
 ## Resilience Score Formula
 
@@ -72,7 +79,6 @@ def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
         ((peak_wind_speed_kmh ** 0.5) / 10)
     )
 ```
-
 ## Tools Used
 
 - **Python**, **Pandas**, **Matplotlib**, **Seaborn**
@@ -145,5 +151,4 @@ This project is licensed under the MIT License. See the [`LICENSE`](LICENSE) fil
 ## Author
 
 **Christopher Bolduc**  
-[LinkedIn](https://www.linkedin.com/in/christopher-david-bolduc/)  
-[GitHub](https://github.com/christopherbolduc)
+[LinkedIn](https://www.linkedin.com/in/christopher-david-bolduc/) • [GitHub](https://github.com/christopherbolduc)
