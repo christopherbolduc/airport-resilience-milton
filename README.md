@@ -99,6 +99,38 @@ def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
 - Visual assets are saved separately for integration into reports and presentations
 - This `README.md` summarizes the methodology, tools, and key results of the analysis
 
+```
+hurricane_milton/
+├── analysis/                              Notebooks for data extraction, transformation, and scoring
+│   ├── ap_resilience.ipynb                Main notebook for resilience scoring and visualizations
+│   └── sql_to_pandas.ipynb                Querying SQL views and loading into pandas
+├── models/                                SQL views for flight and weather modeling
+│   ├── staging/                           Raw data wrappers and standardization
+│   │   ├── stag_airports.sql
+│   │   ├── stag_flights_milton.sql
+│   │   ├── stag_wx_milton_d.sql
+│   │   └── stag_wx_milton_h.sql
+│   ├── prep/                              Cleaned and enriched features
+│   │   ├── prep_flights_milton.sql
+│   │   └── prep_wx_milton_h.sql
+│   └── mart/                              Final analytical dataset
+│       └── mart_airport_daily_milton.sql
+├── csv_files/                             Exported results
+│   ├── airport_resilience_summary.csv     Final scores and metrics for each airport
+│   └── mart_airport_daily_milton.csv      Full daily dataset (ops + weather)
+├── images/                                Visual assets used in README and reports
+│   ├── cancellation_rate_trend.png
+│   ├── resilience_score_barchart.png
+├── index.html                             Homepage for GitHub Pages report
+├── about.html                             Project background page (GitHub Pages)
+├── methodology.html                       Methods breakdown (GitHub Pages)
+├── airport_resilience_milton.pdf          Final PDF version of the report (Gamma)
+├── .env                                   Environment file containing DB/API credentials
+├── .gitignore                             Git exclusion rules
+├── requirements.txt                       Python dependencies for analysis
+├── LICENSE  
+└── README.md                                 
+```
 ---
 
 ## Takeaway
