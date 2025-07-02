@@ -93,12 +93,6 @@ def resilience_score(days_to_recovery, pct_cancelled, peak_wind_speed_kmh):
 - **Bureau of Transportation Statistics (BTS)** – Flight records and cancellation data for major Florida airports
 
 ## Project Structure
-
-- `*.sql` files: Define views for **staging**, **prep**, and **mart** layers in the data pipeline
-- `ap_resilience.ipynb`: Perform resilience scoring and visualization using prepared SQL views
-- Visual assets are saved separately for integration into reports and presentations
-- This `README.md` summarizes the methodology, tools, and key results of the analysis
-
 ```
 hurricane_milton/
 ├── analysis/                              Notebooks for data extraction, transformation, and scoring
